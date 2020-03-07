@@ -1,0 +1,83 @@
+#single-blog{
+	overflow: hidden;
+}
+#blog-detail{
+	background: #eee;
+	border:1px dotted black;
+	padding: 10px 10px;
+	width: 1000px;
+	/*position: absolute;
+	left:50%;
+	transform: translate(-50%,0);*/
+	margin:10px auto;
+	/*margin:15px 0;*/
+}
+
+#blog-comments{
+	background: #eee;
+	padding: 10px 10px;
+	min-height: 100px;
+	margin-top: 50px;
+	padding-bottom:40px;
+}
+
+#blog_content{
+	font-size: 18px;
+	margin-bottom: 50px;
+}
+
+#category{
+	display: inline-block;
+	float:left;
+	font-size: 13px;
+}
+
+#author{
+	display: inline-block;
+	left:50%;
+	position: absolute;
+	transform: translate(-50%,0);
+	font-size: 13px;
+}
+
+#myButton{
+	float:right;
+}
+
+button:first-child{
+	margin:0 5px;
+}
+
+button{
+	color:white;
+	background: #428bca;
+	border-radius: 5px;
+	padding: 3px 5px;
+	border: 1px solid transparent;  
+}
+
+button:focus{
+	outline: none;
+}
+
+#comment-button{
+	padding: 3px 5px;
+	font-size: 13px;
+	margin:10px 0px;
+}
+#pagination{
+		float:right;
+}
+#pagination a{
+	font-size:13px;
+	color:#888888;
+}
+#pagination>p a:hover{
+  color:blue;
+}
+.star{
+	float:right;
+}
+.el-icon-star-off:hover{
+	color:blue;
+}
