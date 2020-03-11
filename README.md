@@ -4,3 +4,17 @@
 前端代码在src文件夹下
 后端代码在flask文件夹下，使用蓝图进行管理
 数据库是mysql
+
+部分页面截图：
+①首页
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog1.png)
+②登陆页面
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog2.png)
+③添加评论
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog3.png)
+④添加博客
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog4.png)
+⑤我的博客
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog5.png)
+⑥我的收藏
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog6.png)
