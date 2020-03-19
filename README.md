@@ -19,10 +19,10 @@
 ②登陆页面
 ![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog2.png)
 ③添加评论
-![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog3.png)
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/myimage.png)
 ④添加博客
 ![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog4.png)
 ⑤我的博客
-![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog5.png)
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/myimage2.png)
 ⑥我的收藏
-![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog6.png)
+![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/myimage3.png)
