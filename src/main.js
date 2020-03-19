@@ -30,13 +30,13 @@ Vue.filter("lessSentences",function(value){
 	return value.slice(0,100) + "....";
 })
 
-
+//全局的路由钩子函数 next(false)不跳转
 router.beforeEach((to, from, next) => {
   if (to.matched.some(m => m.meta.auth)) {
     if (window.sessionStorage.isLogin === '1') {
       next()
     } else if (to.path !== '/login') {
-      next({path: '/login'})
+      next({path: '/login'}) //跳转到登录页面
       Vue.prototype.$message.warning('检测到您还未登录,请登录后操作~')
     }
   } else {

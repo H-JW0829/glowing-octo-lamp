@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ShowBlogs from '../components/ShowBlogs.vue'
 
+//注册插件
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/', 
     name: 'ShowBlogs',
-    component: ShowBlogs
+    component: () => import('../components/ShowBlogs.vue')
   },
   {
     path: '/add',
@@ -43,6 +43,11 @@ const routes = [
     name:'userCenter',
     meta: {auth: true},
     component:() => import('../components/UserCenter.vue')
+  },
+  {
+    path:'/clock',
+    name:'clock',
+    component:() => import('../components/clock.vue')
   }
 ]
 

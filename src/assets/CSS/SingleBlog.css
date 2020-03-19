@@ -81,3 +81,21 @@ button:focus{
 .el-icon-star-off:hover{
 	color:blue;
 }
+
+.avater{
+	float:left;
+	margin-right:5px;
+}
+
+.pic{
+	width:35px;
+	height:35px;
+}
+#comments-list{
+	margin-top:30px;
+}
+
+.info{
+	overflow:hidden;
+	margin-left:10px;
+}

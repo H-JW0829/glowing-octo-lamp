@@ -18,7 +18,6 @@ export default new Vuex.Store({
     },
     $_setStorage (state, value) {
       state.user = value
-      console.log(state.user)
       sessionStorage.setItem(key, JSON.stringify(value))
     },
     $_removeStorage (state) {
@@ -52,8 +51,6 @@ export default new Vuex.Store({
                 alert("对不起，发生异常，请稍后再试或联系管理员~");
           })
   	}
-  },
-  modules: {
   },
   getters:{
   	 getStorage: function (state) {

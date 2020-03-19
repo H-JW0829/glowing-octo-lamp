@@ -2,15 +2,15 @@
   <div id="showBlogs">
     <h1>博客总览</h1>
     <input id="searchBar" type="text" v-model="search" placeholder="搜索...">
-    <div v-for="blog in pageBlogs" id="single-blog">
-      <div id="blog_div">
+    <div v-for="(blog,index) in pageBlogs" :key="index" id="single-blog">
+      <div class="single_blog" id="blog_div">
         <router-link :to="'/blog/' + blog.id + '/' + canDelete">
           <h2 v-rainbow>{{blog.title | toUpper}}</h2>
         </router-link>
         <article>
           {{blog.content | lessSentences}}
         </article>
-    </div>
+      </div>
     </div>
     <div id="pagination">
         <p><a href="javascript:void(0);" style="text-decoration: none" @click="ChangePage(0)">上一页</a>  |
@@ -29,10 +29,11 @@ export default {
     return{
       blogs:[],
       search:"",
-      maxPageSize:5,
+      maxPageSize:7,
       page:1,
       PageBlogs:this.pageBlogs,
-      canDelete:0
+      canDelete:0,
+      imgNum:0,
     }
   },
   methods:{
@@ -51,7 +52,7 @@ export default {
         let arr = changeData(flag,this.blogs,this.PageBlogs,this.page,this.maxPageSize,this.blogsSize);
         this.page = arr[0];
         this.PageBlogs = arr[1];
-      }
+      },
   },
   created(){ //从后端获取到所有的博客
      axios.get('/api/get_all_blogs').then((response)=>{
@@ -67,6 +68,8 @@ export default {
           Vue.prototype.$message.warning("系统发生了异常，请您稍后再试~")
         })
   },
+  mounted(){
+  },
   computed:{
     searchBlogs:function(){  //过滤器，返回标题中有搜索词的博客
       return this.blogs.filter((blog) => {
@@ -78,6 +81,9 @@ export default {
     },
     blogsSize:function(){
       return this.searchBlogs.length;
+    },
+    viewHeight:function(){
+     return window.innerHeight || document.documentElement.clientHeight
     }
   },
   props: {
@@ -92,7 +98,7 @@ export default {
 }
 
 #blog_div{
-  background:#eee;
+  background-image: url("@/../../assets/bg.jpg");
   padding: 10px;
 }
 

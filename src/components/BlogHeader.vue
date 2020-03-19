@@ -14,7 +14,7 @@
 			</ul>
 			<ul id='login_regist'>
 				<li>
-					<router-link to="/login" exact>登录</router-link> | 
+					<router-link v-if="isLogin === '0'" to="/login" exact>登录</router-link><span v-if="isLogin === '0'"> | </span>  
 					<router-link to="/regist" exact>注册</router-link> 
 					<span v-if="isLogin !== '0'"> | <a href="javascript:void(0)" id="logout" @click="logout()">注销</a></span>
 				</li>
@@ -57,6 +57,7 @@
 	#header{
 		overflow: hidden;
 		margin-bottom: 40px;
+		margin-top: 50px;
 	}
 	nav{
 		width: 1200px;

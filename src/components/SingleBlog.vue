@@ -26,12 +26,17 @@
                 	<button type="primary" plain size="medium" id="comment-button" @click="submitComment()">发布</button>
                 </div>
             </div>
-            <div id="comments-list" v-for="comment in pageComments">
-            	<div>
-            		<span style="margin-left:-85%;font-size:12px;color:#9b9b9b;">{{comment.authorName}} </span>
-            		<span style="float:right;font-size:12px;color:#9b9b9b;">{{comment.createTime}} </span>
+            <div id="comments-list" v-for="(comment,index) in pageComments" :key="index">
+            	<div class='avater'> 
+            		<img ref="avater" class="pic" alt="加载中">
             	</div>
-            	<p style="text-align:left;margin:5px 0 10px">{{comment.content}}</p>
+            	<div class='info'>
+	            	<div>
+	            		<span style="margin-left:-84%;font-size:12px;color:#9b9b9b;">{{comment.authorName}} </span>
+	            		<span style="float:right;font-size:12px;color:#9b9b9b;">{{comment.createTime}} </span>
+	            	</div>
+	            	<p style="text-align:left;margin:5px 0 10px">{{comment.content}}</p>
+            	</div>
             </div>	
             <div id="pagination">
 		        <p><a href="javascript:void(0);" style="text-decoration: none" @click="ChangePage(0)">上一页</a>  |
@@ -46,6 +51,7 @@
 	import Vue from '../main.js'
 	import axios from 'axios' 
 	import {changeData} from '../assets/JS/myUtils'
+	import logo from '../assets/avarter.png'
 	export default{
 		name:"single-blog",
 		data(){
@@ -54,11 +60,13 @@
 				blog:{},
 				comment:"",
 				blogComments:[],
-				maxPageSize:5,
+				maxPageSize:10,
      			page:1,
       			pageComments:[],
       			canDelete:this.$route.params.canDelete,
-      			ison:0
+      			ison:0,
+      			logo:logo,
+      			num:0
 			}
 		},
 		methods:{
@@ -151,7 +159,23 @@
 			            .catch((error) => {
 			                  Vue.prototype.$message.warning('哎呦，收藏失败，请待会尝试~')
 			            })
-				}
+				},
+			lazyload(){
+				let imgs = this.$refs.avater;
+				if(typeof imgs === "undefined") return;
+				const viewHeight = window.innerHeight || document.documentElement.clientHeight
+		        for(let i=this.num; i<imgs.length; i++) {
+		            // 用可视区域高度减去元素顶部距离可视区域顶部的高度
+		            let distance = viewHeight - imgs[i].getBoundingClientRect().top
+		            // 如果可视区域高度大于等于元素顶部距离可视区域顶部的高度，说明元素露出
+		            if(distance >= 0 ){
+		                // 给元素写入真实的src，展示图片
+		                imgs[i].src = this.logo;
+		                // 前i张图片已经加载完毕，下次从第i+1张开始检查是否露出
+		                this.num = i + 1
+		            }
+		        }
+		    }
 			},
 		created(){
 			var that = this;
@@ -181,6 +205,12 @@
 		    .catch((response)=>{
 		        Vue.prototype.$message.warning("系统发生了异常，请稍后重试~")
 		    })
+		},
+		mounted(){
+			window.addEventListener('scroll', this.lazyload, false);
+		},
+		updated(){
+			this.lazyload();
 		},
 		  computed:{
 		    userName(){

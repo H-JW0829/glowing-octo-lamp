@@ -21,7 +21,7 @@
 
       <label style="padding-top: 10px">作者</label>
       <select v-model="blog.author">
-        <option v-for="author in authors">{{author}}</option>
+        <option v-for="(author,index) in authors" :key="index">{{author}}</option>
       </select>
       <button @click="submit($event)">确定</button>
     </form>

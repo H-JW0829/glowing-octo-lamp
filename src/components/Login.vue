@@ -11,6 +11,7 @@
 </template>
  
 <script>
+	import {hex_md5} from '../assets/JS/md5.js'
     import Vue from '../main.js'
     import axios from 'axios'
     export default{
@@ -22,16 +23,18 @@
         },
         methods:{
             login(){
-            if(this.username === '' || this.    password === ''){
+            if(this.username === '' || this.password === ''){
                 Vue.prototype.$message.warning('请您把信息填写完整~')
                 return;
             }
+            let md5_password = hex_md5(this.password);
+            console.log(md5_password);
             axios({   //把用户名和密码数据发送到后端验证
                   method: 'post',   
                   url: '/api/login',
                   data: {
                     'username':this.username,
-                    'password':this.password
+                    'password':md5_password
                   },
                 })
                 .then((response) => {

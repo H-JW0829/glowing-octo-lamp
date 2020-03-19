@@ -13,6 +13,7 @@
  
 <script>
     import Vue from '../main.js'
+    import {hex_md5} from '../assets/JS/md5.js'
     import axios from 'axios'
     export default{
         data(){
@@ -31,12 +32,13 @@
             if(this.newPassword !== this.secondNewPassword){
                 Vue.prototype.$message.warning('两次输入的密码不一致，请重新填写~');
             }
+            let md5_password = hex_md5(this.newPassword);
             axios({ //提交数据到后端注册账号
                   method: 'post',
                   url: '/api/regist',
                   data: {
                     'newUsername':this.newUsername,
-                    'newPassword':this.newPassword,
+                    'newPassword':md5_password,
                   },
                 })
                 .then((response) => {

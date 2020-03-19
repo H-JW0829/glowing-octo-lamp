@@ -4,7 +4,7 @@
         <a href="javascript:void(0)" @click="showMyBlogs()">我的博客</a> | 
         <a href="javascript:void(0)" @click="showMyFavorite()">我的收藏</a>
     </div>
-    <div v-for="blog in pageBlogs" id="single-blog">
+    <div v-for="(blog,index) in pageBlogs" :key="index" id="single-blog">
       <div id="blog_div">
         <router-link :to="'/blog/' + blog.id + '/' + canDelete">
           <h2 v-rainbow>{{blog.title | toUpper}}</h2>
@@ -31,7 +31,7 @@ export default {
     return{
       blogs:[],
       search:"",
-      maxPageSize:5,
+      maxPageSize:7,
       page:1,
       PageBlogs:this.pageBlogs,
       canDelete:1,
@@ -132,7 +132,7 @@ export default {
 }
 
 #blog_div{
-  background:#eee;
+  background-image: url("@/../../assets/bg.jpg");
   padding: 10px;
 }
 
