@@ -17,7 +17,7 @@
 ①首页
 ![image](https://github.com/H-JW0829/glowing-octo-lamp/raw/master/ImageForReadMe/zzz.png)
 ②登陆页面
-![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/blog2.png)
+![image](https://github.com/H-JW0829/glowing-octo-lamp/raw/master/ImageForReadMe/blog2.png)
 ③添加评论
 ![image](https://github.com/H-JW0829/glowing-octo-lamp/blob/master/ImageForReadMe/myimage.png)
 ④添加博客
